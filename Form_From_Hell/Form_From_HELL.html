@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Contact Form</title>
+    <link rel="stylesheet" media="screen" href="styles.css" >
+</head>
+<body>
+    
+    <form class="contact_form"  onsubmit="return formValidation();" method="post" name="contact_form">
+        <ul>
+            <li>
+                <h2> Contact Us </h2>
+                <div class="required_notification">* Denotes Required Field</div>
+            </li>
+            <li>
+                <label for="bgColor"> Background Colour:</label>
+                &nbsp <label for="lightColor" style="width: inherit" >lightColor</label><input type="radio" style="margin: 10px 0px 0;" name="bgColor" id="lightColor" onclick="changeColorLight();" value="lightColor"/>
+                &nbsp <label for="darkColor" style="width: 1px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DarkColor</label> <input style="width: 130px" type="radio" name="bgColor" id="darkColor" onclick="changeColorDark();" value="darkColor"/>
+            </li>
+                
+            <li> 
+                <label for="name" >Name*:</label>
+                <input class="labels"  onclick="checkName();" type="text" name="name" placeholder="John Doe" />
+            </li>
+            <li>
+                <!-- The oninput is used to check the input of the above field -->
+                <label  for="email" >Email*:</label>
+                <input class="labels" oninput="checkName();" onclick="checkName();" type="text" name="email" placeholder="john_doe@example.com" onclick="checkForBackgroundColour();"/>
+            </li>
+            <li>
+                    <label for="website" >Website*:</label>
+                    <input class="labels" onclick="checkEmail();" type="text" name="website" placeholder="www.johndoe.com" onclick="checkForBackgroundColour();" />
+             </li>
+            <li>
+                <label for="userName">User Name:</label>
+                <input type="text" class="labels" onclick="checkWeb();" id="userName" name="userName" placeholder="userName" />
+            </li>
+            <li>
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" class="labels" id="userName" name="phNumber" placeholder="12345...." />
+            </li>
+            <li>
+                <label for="phDrop">Type Of Phn</label> 
+                <select name="phN" style="height:30px; 
+                width:240px; 
+                padding:5px 8px; border:1px solid #aaa;
+                box-shadow: 0px 0px 3px rgb(185, 152, 152), 0 10px 15px #eee inset;
+                border-radius:2px;
+                " class="labels">
+                            <option value="default">default</option>
+                            <option value="fax">fax</option>
+                            <option value="mobile">mobile</option>
+                            
+                </select>
+            <li>
+                <label for="Number">Rate This Form:</label>
+                <input type="number" name="marks" min="1" max="10" class="labels" />
+                <span id="change-me"></span>
+            </li>
+            </li>
+            <li class="hide_me_1">
+                    <button class="submit" id="button_submit" type="button" onclick=" changeCursor();">Check Form before submitting</button>
+            </li> 
+            <li class="hide_me" >
+                <button class="submit" id="button_submit" type="submit" >Submit Form</button>
+            </li>
+            
+            <li class="Error">
+                <p style="margin: 50PX 0px 50px; color: red; font-size: large" >
+                    Warning Messages, You may chose to Ignore, Not critical:
+                    <p id="ErrorMessages">
+
+                    </p>
+                </p>
+            </li>      
+        </ul>
+       
+    </form>
+    
+<script src="styles.css"></script>
+<script src="form_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+body{
+    background: green;
+}
+.div {
+    text-align: center;
+    width: 100%;
+    height: 10%;
+    font-size: 2em;
+    font-family: 'Mansalva', cursive;
+    text-decoration-color: red;
+    }
+.div_1{
+    width: 40%;
+    height: 300px;
+    padding-block: 10px;
+    border: solid 5px;
+    margin-left: 30%;
+    margin-top:5%;
+    padding-top: 10%;
+    background: grey;
+    text-align: center;
+    font-size: 2em;
+    font-family:'Turret Road', cursive;
+}
