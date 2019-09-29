@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8' />
+  <title>Storage Fun!</title>
+  
+</head> 
+
+<body onload="changeBg();">
+<script src="cookies.js"></script>
+<script>
+    function changeBg(color){
+      
+      if (color == "clear"){
+        localStorage.removeItem("color");
+      }
+
+      else if (color){
+        // Setting item in local storage - name value pairs
+        localStorage.setItem("color",color)
+      }
+      document.body.style.background = localStorage.getItem("color");
+    }
+    let userId = cookies.getCookie("user_id");
+    if (!userId){
+      let getName = prompt("Hi, first time huh? Whats your name ?");
+
+      document.write(`<h2> Welcome,` + (getName!="" ? getName : "Anonymous user") + `</h2> This is your 1st visit`);
+
+      cookies.setCookie("user_id", (getName !="" ? getName : "Anonymous user"));
+
+      // Dont put sensitive stuff in cookies... 
+    }
+    else{ 
+      document.write("<h2>Hi, "+userId+"<h2>");
+    }
+  </script>
+  
+  <div style="position:absolute; right:10px; bottom:10px; background:#c9c">
+    Change your style!<br/>
+    <span style="cursor:pointer;" onclick="changeBg( 'red' );">Red</span><br/>
+    <span style="cursor:pointer;" onclick="changeBg( 'green' );">Green</span><br/>
+    <span style="cursor:pointer;" onclick="changeBg( 'clear' );">Clear</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>DOM Placement</title>
+<script>
+  // ----------------------------DAY 4 ---------------------------------//
+
+	function changeMe(){
+		let hEle = document.createElement("h2");
+    hEle.setAttribute("id","createTest");
+		// not at all best practice but just to learn
+		hEle.setAttribute("style","color:green");
+    let txtEle = document.createTextNode("Yahoo --- this is just random text");
+		
+		// append the text node to the element 
+		hEle.appendChild( txtEle ); 
+    document.body.appendChild( hEle);
+
+    document.getElementById("moreText").appendChild(hEle);
+	
+  // DAY 5 IN DAY 5----------------------------------------------------------
+  
+  }
+</script>
+</head>
+<body>
+  <div id="everything">
+    <div id="buttons" style="position:absolute; top:8px; left:200px">
+      <button onclick="changeMe();">Do It!</button>
+    </div>
+
+    <div id="text">
+      Text
+    </div>
+    
+    <div id="moreText">
+      More text
+    </div>
+   
+    <hr>
+  </div>
+</body>
+</html>

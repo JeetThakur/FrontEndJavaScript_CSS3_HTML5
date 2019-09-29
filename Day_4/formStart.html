@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8' />
+  <title>Contact Form</title>
+  <style>
+    span {
+      display: inline-block;
+      font-weight: bold;
+      width: 100px;
+    }
+  </style>
+  <script>
+  </script>
+</head>
+<body>
+  <div id="error-msg"></div>
+  
+  <form id="contact-form"
+        method="post"
+        action="forms.html">
+    
+    <span>First name:</span>
+    <input type="text" id="first-name" name="first-name" 
+      maxlength="20" size="20"
+      placeholder="Type first name"
+      value="Dean" />
+    <br/><br/>
+    
+    <span>Last name:</span>
+    <input type="text" id="last-name" name="last-name" 
+      maxlength="20" size="20"
+      value="Ganskop" />
+    <br/><br/>
+    
+    <span>Phone Number:</span>
+    <input type="text" id="phone" name="phone" 
+      maxlength="20" size="20" />
+    <br/><br/>
+    
+    <span>Request reply:</span>
+    <input type="checkbox" id="reply" name="reply"
+      checked="checked" value="spamme"/>
+      <label for="reply">Yes, send me spam!</label>
+    <br/><br/>
+    
+    <span>Gender:</span>
+    <input type="radio" name="gender" id="male"   value="M" />
+      <label for="male">Male</label>
+      &emsp;
+    <input type="radio" name="gender" id="female" value="F" />
+      <label for="female">Female</label>
+    <br/><br/>
+    
+    <span>Province</span>
+    <select name="province">
+      <option></option>
+      <option value="AB">Alberta</option>
+      <option value="MN">Manitoba</option>
+      <option value="PEI">Prince Edward Island</option>
+      <option>Nova Scotia</option>
+      <option>Ontario</option>      
+      <option>Quebec</option>
+      <option>Sasqatchewan</option>
+      <option>Northwest Territories</option>
+      <option>Nunavat</option>
+      <option>New Brunswick</option>
+      <option>Newfoundland</option>
+      <option>Yukon</option>
+    </select>
+    <br/><br/>
+    
+    <span>Password:</span>
+    <input type="password" name="password" />
+    <br/><br/>
+    
+    <input type="reset"  value="Reset Me" />
+    <input type="button" value="Not a submit, eh?" />
+    <input type="submit" value="Submit me!" />
+    
+  </form>
+  
+</body>
+</html>

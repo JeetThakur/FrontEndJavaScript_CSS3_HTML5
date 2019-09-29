@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Events</title>
+	<style type="text/css">
+	  * {
+	    font-family: Verdana, sans-serif;
+	    margin: 0;
+	    padding: 0;
+	  }
+	  body {
+	    padding: 20px;
+	  }
+	  h2 {
+	    margin-top: 20px;
+	  }
+	  div {
+	    float: left;
+	    margin-left: 20px;
+	  }
+	</style>
+	<script type="text/javascript">
+		//<![CDATA[
+		  
+	  function doThat( x ){
+	  	console.log( 'in doThat(): ' + x );
+	  }
+	  
+	  function doIt(){
+	  	console.log( 'in doIt(): ' + 'no arguments' );
+	  }
+		
+		
+
+		//]]>
+	</script>
+</head>
+<body onload="">
+
+  <div>
+    <h2>Image 1:</h2>
+    <p>html attribute</p>
+    <img src="pic.jpg" />
+  </div>
+  
+  <div>
+    <h2>Image 2:</h2>
+    <p>setAttribute()</p>
+    <img src="pic.jpg"/>
+  </div>
+  
+  <div>
+    <h2>Image 3:</h2>
+    <p>onclick</p>
+    <img src="pic.jpg"/>
+  </div>
+  
+  <div>
+    <h2>Image 4:</h2>
+    <p>addEventListener()</p>
+    <img src="pic.jpg"/>
+  </div>
+
+</body>
+</html>

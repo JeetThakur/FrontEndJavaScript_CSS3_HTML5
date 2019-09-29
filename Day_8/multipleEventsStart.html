@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8' />
+  <title>Multiple Events</title>
+  <style>
+    div {
+      float: left;
+      height: 50px;
+      margin: 0 5px 5px 0;
+      width: 50px;
+    }
+  </style>
+  <script>
+    var COLORS = {
+      timeouts: {},
+    
+      getRandomColor: function getRandomColor() {
+        //console.log(Math.random(0,10))
+        function getNum(){
+          return Math.floor(Math.random()*255);
+        } 
+         return "rgb(" + getNum() + " , " + getNum() +","+ getNum() + ")";
+      },
+      
+      init: function init() {
+        var ele,
+            self = this;
+        
+        for ( var i = 0; i < 10000; i++ ) {
+          ele = document.createElement( "div" );
+          ele.style.backgroundColor = this.getRandomColor();
+          ele.setAttribute( "id", "div" + i );
+          
+
+          ele.addEventListener("mouseover", function(){
+            // In this context in the event handler ....
+            // this = element the event was fired on   
+            // self = COLORS object
+                                      // This will not work : console.dir(this);
+          self.fade(this, "out");
+          }, false);
+          document.body.appendChild( ele );
+        }
+        
+      },
+      
+      // DHTML PART FOCUS OF DAY_8 !!!!
+
+      fade: function fade( ele, dir ) {
+        dir = dir || "in";
+        var alpha = window.getComputedStyle( ele ).opacity,
+            self = this;
+        clearTimeout( self.timeouts[ele.id] );
+        
+        if ( dir === "out" ) {
+          if ( alpha >= .05 ) {
+            // Day 9 work
+            
+            ele.style.opacity = alpha-0.5;
+            self.timeouts[ele.id] = setTimeout(function(){
+              self.fade(ele,dir);
+            }, 20);
+
+          }
+          else {
+            ele.style.opacity = 0;
+          }
+        }
+        else if ( dir === "in" ) {
+          if ( alpha <= .95 ) {
+            // Day 9 work
+            
+            ele.style.opacity = alpha+0.5;
+            self.timeouts[ele.id] = setTimeout(function(){
+              self.fade(ele,dir);
+            }, 20);  
+          }
+          else {
+            ele.style.opacity = 1;
+          }
+        }
+      }
+    }
+
+  
+  </script>
+</head>
+<body onload="COLORS.init();">
+  <h1>Colors!</h1>
+</body>
+</html>

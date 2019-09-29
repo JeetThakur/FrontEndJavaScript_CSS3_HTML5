@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8' />
+  <title>AJAX Chat Application</title>
+  <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+  
+  
+
+  
+  <style type="text/css">
+    body, input {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.2rem;
+    }
+    body {
+      background-color: GhostWhite;
+    }
+    input {
+      border-radius: .5rem;
+      border-width: thin;
+      outline: none; /* hide outline that appears on focus */
+      padding: 0 .5rem .2rem;
+    }
+    input[type=submit] {
+      background-color: #e9e9e9;
+    }
+    #container {
+      margin: 0 auto;
+      width: 370px;
+    }
+    #chat {
+      margin-top: 1rem;
+      min-height: 300px; 
+      mix-blend-mode: hard-light; /* see https://css-tricks.com/almanac/properties/m/mix-blend-mode/ */
+    }
+    #chat:after {
+      position: absolute;
+      content: "";
+      left: 0px;
+      bottom: 0px;
+      height: 40%;
+      width: 100%;
+      background: linear-gradient(transparent, GhostWhite);
+    }
+  </style>
+  
+</head>
+<body onload="">
+  <div id="container">
+    <form onsubmit="return false;">
+      <input type="text" name="msg-field" 
+             onchange="checkMessages();"
+             size="20"
+             maxlength="20"
+             placeholder="enter chat message" />
+      <input type="submit" value="send" name="add-btn" />
+    </form>
+    
+    <div id="chat"></div>
+  </div>
+
+  <script>
+   
+  
+    var http = new XMLHttpRequest(),   // We create the HTTP Object
+    url = "http://serenity.ist.rit.edu/~dmgics/240/25/chat/addChatMsg.php";
+  
+    function checkMessages(){
+          // http.open( type of method GET/POST, url, Async?-> true/false )
+          http.open("GET",url, true)
+  
+          // ready states ... handling
+          http.onreadystatechange = handleHttpResponse;
+          
+          // For GET request we do not send Body/Content to the server hence null in the function...
+          http.send(null);
+        
+          function addMessage(){
+            http.open("GET",url+"?msg=" + encodeURIComponent(msg),true);
+            http.onreadystatechange = handleHttpResponse;
+            http.send(null);
+  
+          
+          }
+  
+          function handleHttpResponse(){
+          
+            console.log(http);
+  
+            if (http.readyState === 4 && http.status===200){
+
+            
+              let xmlDoc = http.responseXML; 
+              let stuffForPage="";
+              let msgTags=xmlDoc.getElementsByTagName("msg");
+            
+            for(let i =0,msgLen=msgTags.length; i<msgLen; i++){
+              stuffForPage += msgTags[i].firstChild.data +"<br/>";
+            }
+              document.getElementById("chat").innerHTML=stuffForPage;
+          }
+        }
+        
+      }
+    </script>
+</body>
+</html>

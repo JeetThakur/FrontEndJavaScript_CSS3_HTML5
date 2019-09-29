@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8' />
+  <title>Page Title</title>
+  <link rel='stylesheet' href='Stylesheet href' />
+  <script>
+        /*
+        All browser - cross platform 
+        server side - Node.js
+        */
+
+        /*
+          The following prompts are to learn how script can create alerts on HTML
+        */
+            //var likeAutum = prompt("Do you like ?");
+            //alert("You said "+ likeAutum);
+            //confirm("Really ? " + likeAutum +", is your answer ?");
+  </script>
+</head>
+<body>
+  
+  <div id="response-id"></div>
+  
+  
+  <script>
+  /* used innerHtml down */ 
+    //  document.getElementById("response-id").innerHTML= likeAutum;
+    
+    // we did the below code to check the info we found on the window component of the browser
+    // This also helped us understand the userAgent String
+    const isChrome = window.navigator.userAgent.indexOf("Chrome")>=0,
+    isFirefox = window.navigator.userAgent.indexOf("Firefox")>=0,
+    isSafari = window.navigator.userAgent.indexOf("Safari")>=0;
+
+    console.log("isSafari", isSafari, window.navigator);
+  
+
+  /* Conditional checking to prove what type of browser are we using right now*/
+    if (isChrome) {
+      console.log("Im using Chrome");
+      /// We are using Chrome hence it came out true
+
+      
+      /*Trying warn, info, error*/
+            // console.info("");
+            //console.warn("");
+            //console.error("");
+    }
+    else if (isFirefox){
+      // False
+      console.log("Im using Chrome");
+      }
+    else if (isSafari){
+      //False
+      console.log("Im using Chrome");
+    }
+
+    const PI = 3.14159, // immutable value
+    
+    /*Declaring an object*/
+    // Object literal (collection of name/value pairs)
+     person = { 
+      first: "Dean",
+      cars:[ // arrays containing object value pairs ...
+        {
+          make: 'Tesla',
+          model: "S"
+        },
+        {
+          make: 'Maruti',
+          model: 'Scross'
+        }
+      ],
+
+      ssn: 123456788,
+      teaches: true
+
+    };
+    // using the list to fetch values
+    let myCar = person.cars[1];
+    console.log("I drive a " + myCar["make"] + myCar.model);
+
+    // For - in loop
+
+    for (prop in person){
+      // keeps Object Object as output whihc is expected dont think its wrong
+      document.write(prop +":" + person[prop]+"</br>")
+    }
+
+
+
+
+
+
+
+    // ---------------- Day 3 starts here --------
+
+
+    // For each loop :
+
+    person.cars.forEach(function( car )
+    {
+        // toggle to view in browser
+        document.write(car + "</br>"); // prints [ibject][object]
+
+        document.write(car.model + "</br>"); // prints value
+    }); // syntax to write a for each loop -- since for each is an iterative function we use a function in real
+
+    let num1 = "140kg"; // without Kg it will do all sorts of math being strings if both nums are strings 
+    num2= "13";
+    console.log(num1*num2); //concatination , with kg it will be NaN
+    
+    console.log(parseInt("140kg")); // converts the string into integer can do all the math now
+
+
+
+    // variable scope 
+    var hello = "hello world"; // global variable becomes property of the window object
+    console.log(hello);
+    console.log("window: ", window.hello);
+
+   
+    
+    function printGreeting(){
+        newHello = "hello"; // if created without any prefix -- creates globally directly , if with let only for this function look at ERROR for detials on line 133
+        console.log("from the function: ", hello);
+    }
+    
+    printGreeting();
+
+    function newPrintGreeting(){
+        //console.log("from the next function: ", newHello); //ERROR - wont print out as the scope is bounded inside the upper function so that it cant be accessed 
+        //console.log(window.newHello); // wont print as it has let, if not let then it will print
+    }
+    newPrintGreeting();
+
+    var hola = "13sdfdf";
+    var hello = "foo"; // variable hoisting
+    console.log("after foo: ", hello); // the hello = foo changed the other ref value of hello from hello world to foo try commenting the hello = foo to find on console
+    
+  </script>
+  <script src = "browserDetect.js"> // put all this before body ends and better put this at the end of the body tag so that loading doesnt take much time </script>
+  <script>
+    console.log("OS: ", BrowserDetect.OS,
+                "\nBrowser: ", BrowserDetect.browser,
+                "\nVersion: ", BrowserDetect.version);
+  
+    if (BrowserDetect.browser == "Chrome")  {
+        //alert("yay, Chrome");
+    }
+
+    // better appraoch to browser detection -> feature detection
+
+    if (!window.console) {
+        alert("console not supported");
+    } else{
+        console.log("it supports"); // console for us to check and see it supports
+    }
+    
+    // checking equality: == , not equal: !=
+// DONOT COMPARE STRINGS WITH STRICT EQUALITY ... IMPORTANT
+    if (0==false){
+        console.log("0 does equal to false");
+    } else{ console.log("0 does not equal false");}
+  // no == undefined ?? not proved on browser
+
+
+  // identical: === , not identical: !==
+    // meaning - strictly equal
+    
+    if (0===false){
+        console.log("Identical check: 0 does equal to false");
+    } else{ console.log("Identical check: 0 does not equal false");}
+  
+
+// ---------------------------DAY 3 ENDS --------------------------------------//
+// ---------------------------DAY 4 BEGINS ------------------------------------//
+
+  </script> 
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8' />
+  <title>Page Title</title>
+  <link rel='stylesheet' href='Stylesheet href' />
+  <script>
+        /*
+        All browser - cross platform 
+        server side - Node.js
+        */
+
+        /*
+          The following prompts are to learn how script can create alerts on HTML
+        */
+            //var likeAutum = prompt("Do you like ?");
+            //alert("You said "+ likeAutum);
+            //confirm("Really ? " + likeAutum +", is your answer ?");
+  </script>
+</head>
+<body>
+  
+  <div id="response-id"></div>
+  
+  
+  <script>
+  /* used innerHtml down */ 
+    //  document.getElementById("response-id").innerHTML= likeAutum;
+    
+    // we did the below code to check the info we found on the window component of the browser
+    // This also helped us understand the userAgent String
+    const isChrome = window.navigator.userAgent.indexOf("Chrome")>=0,
+    isFirefox = window.navigator.userAgent.indexOf("Firefox")>=0,
+    isSafari = window.navigator.userAgent.indexOf("Safari")>=0;
+
+    console.log("isSafari", isSafari, window.navigator);
+  
+
+  /* Conditional checking to prove what type of browser are we using right now*/
+    if (isChrome) {
+      console.log("Im using Chrome");
+      /// We are using Chrome hence it came out true
+
+      
+      /*Trying warn, info, error*/
+            // console.info("");
+            //console.warn("");
+            //console.error("");
+    }
+    else if (isFirefox){
+      // False
+      console.log("Im using Chrome");
+      }
+    else if (isSafari){
+      //False
+      console.log("Im using Chrome");
+    }
+
+    const PI = 3.14159, // immutable value
+    
+    /*Declaring an object*/
+    // Object literal (collection of name/value pairs)
+     person = { 
+      first: "Dean",
+      cars:[ // arrays containing object value pairs ...
+        {
+          make: 'Tesla',
+          model: "S"
+        },
+        {
+          make: 'Maruti',
+          model: 'Scross'
+        }
+      ],
+
+      ssn: 123456788,
+      teaches: true
+
+    };
+    // using the list to fetch values
+    let myCar = person.cars[1];
+    console.log("I drive a " + myCar["make"] + myCar.model);
+
+    // For - in loop
+
+    for (prop in person){
+      // keeps Object Object as output whihc is expected dont think its wrong
+      document.write(prop +":" + person[prop]+"</br>")
+    }
+
+
+  </script>
+</body>
+</html>

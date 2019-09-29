@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+  <title>Croatia Image Gallery</title>
+ <!--the margin in style 0 20 30 means : top, left&right, bottom -->
+ <style>    
+    body { 
+      background: silver;
+      font-family: verdana, helvetica, arial, sans-serif;
+    }
+    
+    h1 {
+      color: #444444;
+      font-weight: normal;
+      margin: 20px;
+    }
+    
+    #big-pic {
+      border: 1px solid white;
+      box-shadow: 2px 2px 5px 1px grey; 
+      margin: 0 20px 3px
+      /* x-offset y-offset blur size color*/
+       
+    }
+    
+    .strip-div {
+      border: 1px solid white;
+      box-shadow: 2px 2px 5px 1px rgb(212, 22, 22)
+      height: 83px;
+      width 490px;
+      margin: 20px;
+      padding: 5px;
+      white-space: nowrap;
+      overflow-y: hidden;
+    }
+
+    .thumb {
+    }
+  </style>
+  <script>
+    let imagesArray =[]
+    function loadImgs(){
+      const numImg= document.images.length-1;
+      for (let i = 1; i<=numImg; i++){
+        
+        // just because the file is stupidly structured rn 
+        let x = ("0"+i).slice(-2);
+        imagesArr[i] = new Image();
+        imagesArray[i].src =`images/img${i}.jpg`;
+
+       
+      }
+    }
+
+    function showPic(imgSrc){
+      console.log("imgSrc: ", imgSrc);
+      let start = imgSrc.indexOf("/images")+11,
+      end = imgSrc.indexOf("thumb.jpg"),
+      num = imgSrc.substring(start,end);
+      
+      // we got our location of the picture in the link
+      console.log("Substring: " , num)
+
+
+      // This is done inorder to make the bigger picture to toggle as the way you try clicking the smaller pictures in the list below //
+      //document.getElementById("big-pic").src()
+      //document.images[0].src = "images/img"+num+".jpg";
+
+      // another better way to do is : make sure you use ` called backtick
+      document.images[0].src = `images/img${num}.jpg`; // INTERPOLATION
+      
+      // another way of doing it .. TAUGHT LAST MINUTE .... DOESNT WORK
+      //document.images[0].src = imagesArray[ parseInt(num) ].src
+      console.log(imagesArray);
+      // how to use the single quote to allow "" into the sentence ...
+      myStr = 'My name is "Jeet"';
+      console.log(myStr);
+    }
+  </script>
+</head>
+<body onload="loadImgs();">
+  
+  <h1>The Dalmatian Coast</h1>
+  
+  <!--Big Pics-->
+  <img src="images/img01.jpg" alt="Croatia!" onclick="doit(this)" id="big-pic" />
+  
+  <!--Thumbnail Strip-->
+  <div class="strip-div">
+    <img  onclick="showPic(this.src);" src="images/img01thumb.jpg" class="thumb" alt="The Old City of Dubrovnik, Croatia" title="The Old City of Dubrovnik, Croatia" />
+    <img onclick="showPic( this.src);" src="images/img02thumb.jpg" class="thumb" alt="Lokrum Island, Dubrovnik" title="Lokrum Island, Dubrovnik" />
+    <img onclick="showPic( this.src);" src="images/img03thumb.jpg" class="thumb" alt="Dubrovnik under stormy skies" title="Dubrovnik under stormy skies" />
+    <img onclick="showPic( this.src);" src="images/img04thumb.jpg" class="thumb" alt="St. Blaise Festival" title="St. Blaise Festival" />
+    <img onclick="showPic( this.src);" src="images/img05thumb.jpg" class="thumb" alt="Marching band for St. Blaise Festival" title="Marching band for St. Blaise Festival" />
+    <img onclick="showPic( this.src);" src="images/img06thumb.jpg" class="thumb" alt="Beach outside Dubrovnik" title="Beach outside Dubrovnik" />
+    <img onclick="showPic( this.src);"src="images/img07thumb.jpg" class="thumb" alt="Fort St. Lawrence" title="Fort St. Lawrence" />
+    <img onclick="showPic( this.src);" src="images/img08thumb.jpg" class="thumb" alt="Adriatic Sea at sunset" title="Adriatic Sea at sunset" />
+    <img onclick="showPic( this.src);" src="images/img09thumb.jpg" class="thumb" alt="RIT Croatia, Dubrovnik Campus" title="RIT Croatia, Dubrovnik Campus" />
+    <img onclick="showPic( this.src);" src="images/img10thumb.jpg" class="thumb" alt="Harbor at Gru&#382;" title="Harbor at Gru&#382;" />
+    <img onclick="showPic( this.src);" src="images/img11thumb.jpg" class="thumb" alt="Diocletian's Palace, Split, Croatia" title="Diocletian's Palace, Split, Croatia" />
+    <img onclick="showPic( this.src);" src="images/img12thumb.jpg" class="thumb" alt="Plitvice Lakes National Park" title="Plitvice Lakes National Park" />
+    <img onclick="showPic( this.src);" src="images/img13thumb.jpg" class="thumb" alt="Plitvice Lakes National Park" title="Plitvice Lakes National Park" />
+    <img onclick="showPic( this.src);" src="images/img14thumb.jpg" class="thumb" alt="Bay of Kotor, Montenegro" title="Bay of Kotor, Montenegro" />
+    <img onclick="showPic( this.src);" src="images/img15thumb.jpg" class="thumb" alt="Bay of Kotor, Montenegro" title="Bay of Kotor, Montenegro" />
+    <img onclick="showPic( this.src);" src="images/img16thumb.jpg" class="thumb" alt="Kotor, Montenegro" title="Kotor, Montenegro" />
+    <img onclick="showPic( this.src);"src="images/img17thumb.jpg" class="thumb" alt="Ancient walls above Kotor" title="Ancient walls above Kotor" />
+  </div>
+</body>
+</html>

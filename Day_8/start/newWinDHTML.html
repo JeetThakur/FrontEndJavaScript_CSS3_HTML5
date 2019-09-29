@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8' />
+	<title>DHTML FUN</title>
+  <script>
+	  let newWin;
+	  function createWin(){
+		 // The parameters the open() takes...
+
+		  // url
+		  // name for the window
+		  // features
+		  newWin = window.open("","myWin","height=300,width=300,screenX=350,screenY=50");
+		  newWin.document.write(`<h1 id='coolBeans' style='position:absolute; left:2px;'>
+			Yay JS!
+			</h1>`);
+			
+	  }
+	  // The mehtod is popullated with a value .. from the html page as this.value 
+	  function changeColor(value){
+		//newWin.focus();
+		
+		//newWin.document.getElementById("coolBeans").style.color = value;
+		
+		let please = newWin.document.getElementById("coolBeans"); 
+		please.style.color = value;
+	  }
+	  function changeStyle(prop, value){
+		newWin.focus();
+		newWin.document.getElementById("coolBeans").style[prop] = value;
+	  }
+
+
+	  function slideIt(){
+		  let ele = newWin.document.getElementById("coolBeans"), curPos = parseInt(ele.style.left), newPos = curPos+5;
+
+		  ele.style.left = newPos;
+
+		  if ( newPos < 200 ){
+		setTimeout(slideIt, 50);
+		 }
+ 
+	  }
+	
+  </script>
+</head>
+<body>
+	<!--NOT AT ALL A GOOD PRACTICE-->
+	<a href="javascript:createWin();">click for new window</a>
+	
+	<br><br><br>
+	<form>
+ 		Put in a color name (or hex):   <input type="text" size="30" onchange="changeColor(this.value);" /><br/>
+ 		Put in a font size (like 12pt): <input type="text" size="30" onchange="changeStyle('fontSize', this.value)" /><br/>
+ 		Put in a font family:           <input type="text" size="30" onchange="" /><br/>
+ 		Put in a new left (like 100px): <input type="text" size="30" onchange="" /><br/>
+ 		Put in a new top (like 200px):  <input type="text" size="30" onchange="" /><br/>
+ 		Put in a new margin:            <input type="text" size="30" onchange="" />
+ 		<input type="button" onclick="slideIt();" value="click me to make it slide" />
+	</form> 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

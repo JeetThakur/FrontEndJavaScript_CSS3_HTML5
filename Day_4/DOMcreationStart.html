@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>DOM Creation</title>
+<script>
+	function createText(){
+		// first in memory
+		let hEle = document.createElement("h2");
+		hEle.setAttribute("id","createTest");
+		// not at all best practice but just to learn
+		hEle.setAttribute("style","color:green");
+		hEle.setAttribute("style","padding-top: 20px");
+		
+		let txtEle = document.createTextNode("Yahoo --- this is just random text");
+		
+		// append the text node to the element 
+		hEle.appendChild( txtEle );
+
+		let bodyEle = document.body;
+		console.log(bodyEle)
+		bodyEle.appendChild(hEle);
+
+		// lets add image
+		// image preloading is a boon - it reduces the loading time
+		let imgEle = document.createElement("img");
+		imgEle.setAttribute("src", "california.jpg");
+		bodyEle.append( imgEle );
+
+		// create a button
+		let btnEle = document.createElement("input");
+		btnEle.setAttribute("type", "button");
+	// this adds text to the button 
+		btnEle.setAttribute("value", "click me now");
+		// this line removes the child from the dom trace -- hence we go to the parent holding this child node and then ask it to remove "this" child node
+		btnEle.setAttribute("onClick", "this.parentNode.removeChild(this);");
+		// call to append on the body element 
+		bodyEle.appendChild(btnEle);
+	
+		bodyEle.childNodes.forEach(function (ele){
+		// the #text is the line breaks in HTML
+		console.dir(ele);
+
+
+	});
+	
+	}
+	
+	
+
+</script>
+</head>
+<body>
+<div id="buttons" style="position:absolute; top:8px; left:200px">
+	<!-- this is the way we attach an event listener-->
+	<!-- this isnt the best way tho .. better ones will be taught later-->
+	<button onclick="createText();">Create It!</button>
+</div>
+<body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

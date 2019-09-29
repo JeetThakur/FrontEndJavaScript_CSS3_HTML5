@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Proto Intro</title>
+    <script>
+            // parent class constructor function
+            function Vehicle(name){
+                this.name = name || "titanic";
+
+            }
+        Vehicle.prototype.sayHello = function(){
+            console.log("Hi, my name is "+ this.name);
+
+        };
+        let ship = new Vehicle(); // Constructor call
+        console.dir(ship);
+        ship.sayHello();
+    
+        function Automobile(name, numWheels){
+            this.name = name || "Betsy";
+            this.numWheels = numWheels || 4;
+        }
+
+        Automobile.prototype = new Vehicle();
+
+        let pickup = new Automobile();
+        console.dir(pickup);
+        pickup.sayHello();
+    </script>
+    
+</head>
+
+<body>
+
+
+
+</body>
+
+</html>
