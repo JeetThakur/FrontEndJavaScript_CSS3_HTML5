@@ -1,0 +1,1105 @@
+{
+    
+
+    "bool":"False",
+    "Main": "lets Check What Famous Celebrities Personality on screen matches with your's !!! ",
+    "Title":"Favourite Food ",
+    "members" : [
+        {
+            "Q":"Burger",
+            "sub_members" : [ 
+                {
+                    "Title":"Pick a Drink"
+                }, 
+                {   
+                    "Q": "Water",
+                    "sub_members" : [
+                        {
+                            "Title":"How would your Friends describe you ?"
+                        },
+                        {
+                            "Q": "Fun",
+                            "sub_members" : [
+                                {
+                                    "Title":"What TV series do you like ?"
+                                },
+                                {
+                                    "Q": "Friends",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Robert Dw Jr"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Big Bang Theory",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Tom Curise"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Office",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Adele"
+                                    }
+                                
+                                    ]
+
+                                }
+                            ]
+                        },
+                        {
+                            "Q": "Friendly",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Emiliya Clarke"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Emma Stone"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Hritik Roshan"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                        ]
+                        },
+                        {
+                            "Q": "Unique",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Chris Hemsworth"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Ranbir Kapoor"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Sunny Deol"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                    ] 
+                                 }
+                            ]
+                        },
+                    {
+                    "Q": "Milk",
+                   
+                    "sub_members" : [
+                        {
+                            "Title":"How would your Friends describe you ?"
+                        },
+                        {
+                            "Q": "Fun",
+                            "sub_members" : [
+                                {
+                                    "Title":"What TV series do you like ?"
+                                },
+                                {
+                                    "Q": "Friends",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Miley Cyrus"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Big Bang Theory",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Sachin Tendulkar"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Office",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Adele"
+                                    }
+                                
+                                    ]
+
+                                }
+                            ]
+                        },
+                        {
+                            "Q": "Friendly",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Sunny Deol"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"John Cena"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Dwayne Jhonson"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                        ]
+                        },
+                        {
+                            "Q": "Unique",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Chris Hemsworth"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Ranbir Kapoor"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Varun Dhavan"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                    ] 
+                                 }
+                            ]
+
+
+
+                    },
+                
+                {
+                    "Q": "Beer",
+                    
+                    "sub_members" : [
+                        {
+                            "Title":"How would your Friends describe you ?"
+                        },
+                        {
+                            "Q": "Fun",
+                            "sub_members" : [
+                                {
+                                    "Title":"What TV series do you like ?"
+                                },
+                                {
+                                    "Q": "Friends",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Robert Dw Jr"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Big Bang Theory",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Virat Kohli"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Office",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Priyanka Chopra"
+                                    }
+                                
+                                    ]
+
+                                }
+                            ]
+                        },
+                        {
+                            "Q": "Friendly",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Emiliya Clarke"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Nick Jonas"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Hritik Roshan"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                        ]
+                        },
+                        {
+                            "Q": "Unique",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Jennifer Aniston"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Ranbir Kapoor"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Jim Parsons"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                    ] 
+                                 }
+                            ]
+
+                }
+
+            ]
+            
+        },
+        {
+            "Q":"Chinese",
+
+            "sub_members" : [ 
+                {
+                    "Title":"Pick a Drink"
+                }, 
+                {   
+                    "Q": "Water",
+                    "sub_members" : [
+                        {
+                            "Title":"How would your Friends describe you ?"
+                        },
+                        {
+                            "Q": "Fun",
+                            "sub_members" : [
+                                {
+                                    "Title":"What TV series do you like ?"
+                                },
+                                {
+                                    "Q": "Friends",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Bruce Lee"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Big Bang Theory",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Jackie Chan"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Office",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Peter Dinklage"
+                                    }
+                                
+                                    ]
+
+                                }
+                            ]
+                        },
+                        {
+                            "Q": "Friendly",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Jackie Chan"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Emma Stone"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Bruce Lee"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                        ]
+                        },
+                        {
+                            "Q": "Unique",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Sunny Leone"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Rakhi Sawant"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Salman Khan"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                    ] 
+                                 }
+                            ]
+                        },
+                    {
+                    "Q": "Milk",
+                   
+                    "sub_members" : [
+                        {
+                            "Title":"How would your Friends describe you ?"
+                        },
+                        {
+                            "Q": "Fun",
+                            "sub_members" : [
+                                {
+                                    "Title":"What TV series do you like ?"
+                                },
+                                {
+                                    "Q": "Friends",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Amir Khan"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Big Bang Theory",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Dharmendra"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Office",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Jitendra"
+                                    }
+                                
+                                    ]
+
+                                }
+                            ]
+                        },
+                        {
+                            "Q": "Friendly",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Sanjay Dutt"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Amitabh Bacchan"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Amitabh Bacchan"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                        ]
+                        },
+                        {
+                            "Q": "Unique",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Amir Khan"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Dipika Padukaun Singh"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Aishwarya Rai"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                    ] 
+                                 }
+                            ]
+
+
+
+                    },
+                
+                {
+                    "Q": "Beer",
+                    
+                    "sub_members" : [
+                        {
+                            "Title":"How would your Friends describe you ?"
+                        },
+                        {
+                            "Q": "Fun",
+                            "sub_members" : [
+                                {
+                                    "Title":"What TV series do you like ?"
+                                },
+                                {
+                                    "Q": "Friends",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Jaya Bachan"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Big Bang Theory",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Taimur Pataudi"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Office",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Saif Ali Khan"
+                                    }
+                                
+                                    ]
+
+                                }
+                            ]
+                        },
+                        {
+                            "Q": "Friendly",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Taimur Khan"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Emma Stone"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Hritik Roshan"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                        ]
+                        },
+                        {
+                            "Q": "Unique",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Chris Hemsworth"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Ranbir Kapoor"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Sunny Deol"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                    ] 
+                                 }
+                            ]
+
+                }
+
+            ]
+
+       },
+        {
+            "Q":"PopCorn",
+            "sub_members" : [ 
+                {
+                    "Title":"Pick a Drink"
+                }, 
+                {   
+                    "Q": "Water",
+                    "sub_members" : [
+                        {
+                            "Title":"How would your Friends describe you ?"
+                        },
+                        {
+                            "Q": "Fun",
+                            "sub_members" : [
+                                {
+                                    "Title":"What TV series do you like ?"
+                                },
+                                {
+                                    "Q": "Friends",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Robert Dw Jr"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Big Bang Theory",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Sridevi"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Office",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Sridevi"
+                                    }
+                                
+                                    ]
+
+                                }
+                            ]
+                        },
+                        {
+                            "Q": "Friendly",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Bonney Kapoor"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Emma Stone"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Hritik Roshan"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                        ]
+                        },
+                        {
+                            "Q": "Unique",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Chris Hemsworth"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Ranbir Kapoor"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Amir Khan"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                    ] 
+                                 }
+                            ]
+                        },
+                    {
+                    "Q": "Milk",
+                   
+                    "sub_members" : [
+                        {
+                            "Title":"How would your Friends describe you ?"
+                        },
+                        {
+                            "Q": "Fun",
+                            "sub_members" : [
+                                {
+                                    "Title":"What TV series do you like ?"
+                                },
+                                {
+                                    "Q": "Friends",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Shikar Dhavan"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Big Bang Theory",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Anil Kumble"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Office",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Sridevi"
+                                    }
+                                
+                                    ]
+
+                                }
+                            ]
+                        },
+                        {
+                            "Q": "Friendly",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Rajnikant"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Rajni kant"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"kamal hasan"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                        ]
+                        },
+                        {
+                            "Q": "Unique",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Rajnikant"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Ranbir Kapoor"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Sunny Deol"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                    ] 
+                                 }
+                            ]
+
+
+
+                    },
+                
+                {
+                    "Q": "Beer",
+                    
+                    "sub_members" : [
+                        {
+                            "Title":"How would your Friends describe you ?"
+                        },
+                        {
+                            "Q": "Fun",
+                            "sub_members" : [
+                                {
+                                    "Title":"What TV series do you like ?"
+                                },
+                                {
+                                    "Q": "Friends",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Robert Dw Jr"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Big Bang Theory",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Tom Curise"
+                                    }
+                                
+                                    ]
+                                },
+                                {
+                                    "Q": "The Office",
+                                    "sub_members" : [
+                                        {
+                                            "bool":"Adele"
+                                    }
+                                
+                                    ]
+
+                                }
+                            ]
+                        },
+                        {
+                            "Q": "Friendly",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Gowinda"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Kamal Hasan"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Hritik Roshan"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                        ]
+                        },
+                        {
+                            "Q": "Unique",
+                            "sub_members" : [
+                                        {
+                                            "Title":"What TV series do you like ?"
+                                        },
+                                        {
+                                            "Q": "Friends",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Sachin Tendulkar"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Big Bang Theory",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Anil Kapoor"
+                                            }
+                                        
+                                            ]
+                                        },
+                                        {
+                                            "Q": "The Office",
+                                            "sub_members" : [
+                                                {
+                                                    "bool":"Sunny Deol"
+                                            }
+                                        
+                                            ]
+        
+                                        }
+                                    ] 
+                                 }
+                            ]
+
+                }
+
+            ]
+            
+        }
+    ]
+}
