@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+  <!--
+    Feel free to add any attributes you wish (like id).  You can't add any tags...
+    Remember you need to get this to work in Firefox or Chrome (don't worry about IE)
+    document.write and innerHTML wont get any points!!!
+  --> 
+	<title>ISTE-754 Final Practical</title>
+	<style> 
+	  div.table-row {
+	    display: flex;
+	  }
+		div.table-cell {
+			border-style: solid;
+			border-width: 2px;
+			padding: .5em;
+		}
+	</style>
+	<script>
+	  /*********************************\
+	    PART A
+	  \*********************************/
+	  
+	  /* 
+	    1)
+	    All functionality must be written within a module pattern. 
+	    I.e., you should only expose a single variable to the global namespace.
+	  */
+  		var mywork = function(){
+			function init(){
+				//Q[2]
+				// Capture Parent to add child to
+				let parent = document.getElementById('text-placement');
+				
+				// Create the span element to append text child
+				let spanEle = document.createElement('span');
+				let txt = document.createTextNode('dashed');
+				spanEle.appendChild(txt);
+				// Put the style
+				spanEle.style.color = 'orange';
+				// Append to the parent object 
+				parent.childNodes[8].replaceWith(spanEle);
+
+				//Q[3] -- check for local storage values and then do the needful
+				fetchLocalStorage();
+				/*
+				Attaching the necessary event listeners 
+				*/
+				attachTableCellsListener();
+				console.log() // 9,10,11
+				document.getElementsByTagName('input')[9].addEventListener("click", moveMyTable)
+				document.getElementsByTagName('input')[10].addEventListener("click", createRow)
+				document.getElementsByTagName('input')[11].addEventListener("click", createColl)
+
+				/**
+				 * Ajax Call
+				*/
+
+				let http = new XMLHttpRequest();
+				url = "http://ganskop.com/proxy/https://rss.itunes.apple.com/api/v1/us/movies/top-movies/all/10/explicit.json"
+				http.open("GET",url,true);
+				http.onreadystatechange = fill;
+				http.send(null) // GET METHOD 
+
+				function fill(){
+
+					if (http.readyState == 4 && http.status==200){
+						//console.log(JSON.parse(http.response))
+
+						let data = JSON.parse(http.response)
+						let dataArr = data.feed.results
+						console.log(dataArr)
+
+						fillMyTable(dataArr);
+					}
+				}
+
+
+			}
+
+			function attachTableCellsListener(){
+				let tableCells = document.getElementsByClassName('table-cell')
+				console.log(tableCells)
+				for (let index=0; index<tableCells.length; index++){
+					tableCells[index].addEventListener("click", giveMeThatStyleTheUserHasChosen)
+				}
+			}
+
+			// This is the function which consumes output from the Ajax call
+			// Iterates over the first 5 results 
+			// Then updates the cells ... using a for loop over the rows -- cell[0] is the first cell
+			function fillMyTable(data){
+				let tableRow = document.getElementsByClassName('table-row');
+				//console.log(tableRow)
+				for (let index = 0; index<5;index++){
+					tableRow[index].getElementsByClassName('table-cell')[0].textContent = data[index].name;
+				}
+			}
+
+			// Helper function to assist less code clutter -- Q[3]
+			function fetchLocalStorage(){
+				console.log(document.getElementsByTagName('input')) // 7 - left , 8 - Top
+				let leftInput = document.getElementsByTagName('input')[7] 
+				let topInput = document.getElementsByTagName('input')[8]
+
+				let leftVal = localStorage.getItem("left");
+				let topVal = localStorage.getItem("top");
+
+				if (leftVal == "" || leftVal == undefined){
+					leftVal = 0;
+				}
+				
+				
+				else{
+					leftInput.value = leftVal
+				}
+
+				if (topVal == "" || topVal == undefined){
+					topVal = 0;
+				}
+				
+				//console.log(document.getElementsByTagName('input')) // 7 - left , 8 - Top
+				else{
+					topInput.value = topVal;
+				}
+
+				moveTheTable(leftVal,topVal);
+
+			}
+
+			// Helper Function to move the table .. based on the left and top values specified
+			function moveTheTable(leftVal, topVal){
+				let table = document.getElementById('tbody');
+				
+				// px was important ... 
+				table.style.left = leftVal+"px";
+				table.style.top = topVal+"px";
+			}
+
+			// This function is clickable via added event listener.
+			function moveMyTable(){
+				let leftInput = document.getElementsByTagName('input')[7] 
+				let topInput = document.getElementsByTagName('input')[8]
+
+				let leftVal = leftInput.value;
+				let topVal = topInput.value;
+
+				console.log(leftVal, topVal)
+
+				localStorage.setItem("left", leftVal);
+				localStorage.setItem("top",topVal);
+
+				// Calls the unexposed functionality to move the object 
+				moveTheTable(leftVal,topVal);
+			}
+
+			function giveMeThatStyleTheUserHasChosen(){
+				
+				let cellThatIsClicked = this
+				console.log(this)
+
+				let textToBePlaced = document.getElementById('textChange').value;
+				console.log(textToBePlaced)
+
+				this.textContent = textToBePlaced;
+
+				let form = document.getElementsByTagName('form')[0];
+				
+				//console.log(form['fontStyleRadios']);
+				let radioButtons = form['fontStyleRadios']
+				console.log(radioButtons)
+				
+				let borderStyle = radioButtons.value;
+				console.log(borderStyle)
+
+				this.style.border = borderStyle;
+				
+			}
+
+			// Creates a new row
+			function createRow(){
+				
+				let table = document.getElementById('tbody')
+				let row = document.getElementsByClassName('table-row')[0]
+				let dummyRow = row.cloneNode(true)
+
+				//dummyRow.getElementsByClassName('table-cell')[0].textContent = "some text"
+				
+				let dummyCells = dummyRow.getElementsByClassName('table-cell');
+
+				for (let index=0; index<dummyCells.length; index++){
+					dummyCells[index].style.border = "solid";
+					dummyCells[index].textContent = "some text";
+				}
+				
+				table.append(dummyRow);
+				attachTableCellsListener();
+			
+			}
+			
+			// creates a new collumn
+			function createColl(){
+				console.log("hi")
+
+				let row = document.getElementsByClassName('table-row');
+				console.log(row);
+				let lenght = row.length;
+
+				for (let index =0; index<lenght;index++){
+					let divCollCell = document.createElement('div');
+					let text = document.createTextNode("some text");
+					divCollCell.appendChild(text);
+					row[index].append(divCollCell);
+					divCollCell.setAttribute("class", "table-cell");
+
+				}
+			
+				attachTableCellsListener();
+			}
+			return{
+				init:init
+				
+			}
+	}()	
+    /*
+      2)
+      Write a function that creates a text node containing "dashed" when the document loads. 
+      Make the text orange and place it in front of the radio button that has no label. 
+      It must look like the example for full credit.
+      
+      3)
+      In the same function, if there are values in localStorage for the left and/or top from 
+      the "Move the table:" inputs from a previous value, put those values back into the 
+      inputs and move the "table".
+    */
+		
+		
+    /*
+      4)
+      Write a function that is called when any "table cell" is clicked, which takes the text 
+      from the input field and puts it in the clicked "table cell", and also takes the border 
+      style from the selected radio button and applies that to the clicked "table cell".�
+    */
+		
+		
+    /*
+      5)
+      Write a function that moves the "table" to the position specified in the "Move the table" 
+      inputs. Store these values into localStorage as left and top
+    */
+		
+		
+    /*
+      6)
+      Write a function that will be called when the "create row" button is clicked and that 
+      will create a new "row" at the end of the "table". Each "cell" in the new row will:
+        a) have "some text" as its text
+        b) have a class of "table-row"
+        c) have a solid border
+        d) have as many "columns" as the rest of the rows in the "table"
+        e) update its text and border (as described in #4 above) when clicked
+    */
+		
+		/*
+			Extra Credit:
+      Be sure you're done with everything else before you try this!
+      There's no partial credit for the extra credit. It must be completely working to
+      receive credit.
+      
+      Write a function that will be called when the "create column" button is clicked and 
+      that will create a new "column" on the right side of the "table". Each "cell" in the 
+      new column will have all of the features as listed for the row cells in #6 above.
+	  */
+		
+		
+	  /*********************************\
+	    PART B
+	  \*********************************/
+	  /*
+	  1)
+	  When the page loads, in addition to #2 and #3 above, make an AJAX request (using plain 
+	  JavaScript XHR) to retrieve a list of top-selling movies from iTunes. Send the request to:
+    http://ganskop.com/proxy/https://rss.itunes.apple.com/api/v1/us/movies/top-movies/all/10/explicit.json
+    
+    2)
+    Parse the JSON response to retrieve the list of results
+    
+    3)
+    Iterate over the first 5 results, and populate the first "cell" in each "row" with the
+    corresponding name from the results.
+    */
+
+
+	</script>
+</head>
+<body onload="mywork.init()">
+<form>
+	Text to go into &lt;div&gt;'s:<br/>
+	<input type="text" id="textChange" value="some text"/><br/>
+	<p id="text-placement">
+  	Border-Style for text:<br/>
+  	solid<input type="radio" name="fontStyleRadios" value="solid" checked="checked"/><br/>
+  	dotted<input type="radio" name="fontStyleRadios" value="dotted"/><br/>
+  	<input type="radio" name="fontStyleRadios" value="dashed"/><br/>
+  	ridge<input type="radio" name="fontStyleRadios" value="ridge"/><br/>
+  	inset<input type="radio" name="fontStyleRadios" value="inset"/><br/>
+  	outset<input type="radio" name="fontStyleRadios" value="outset"/><br/>
+	</p>
+	
+	Move the table:<br/>
+	Left: <input type="text" /><br/>
+	Top: <input type="text" /><br/>
+	<input type="button" value="move it!" />
+	
+	<p>
+		Create another 'row':<input type="button" value="create row"/>
+	</p>
+	
+	<!-- Extra Credit! -->
+	<p>
+		Create new column for each row (extra credit): <input type="button" value="create column"/>	
+	</p>
+</form>
+
+<div style="position:absolute; top:30px; left:310px;" id="tbody">
+
+	<div class="table-row">
+	  <div class="table-cell">some text</div>
+	  <div class="table-cell">some text</div>
+	</div>
+	<div class="table-row">
+	  <div class="table-cell">some text</div>
+	  <div class="table-cell">some text</div>
+	</div>
+	<div class="table-row">
+	  <div class="table-cell">some text</div>
+	  <div class="table-cell">some text</div>
+	</div>
+	<div class="table-row">
+	  <div class="table-cell">some text</div>
+	  <div class="table-cell">some text</div>
+	</div>
+	<div class="table-row">
+	  <div class="table-cell">some text</div>
+	  <div class="table-cell">some text</div>
+	</div>
+
+</div>
+</body>
+</html>
