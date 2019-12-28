@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8' />
+  <title>REST from JavaScript</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+  <script>
+    //var url = "http://simon.ist.rit.edu:8080/AreaDemo/resources/AreaCalculator/Rectangle/?width=5&length=4";
+    var url = "https://people.rit.edu/~dmgics/756/AreaDemo_proxy.php";
+
+    // JQUERY TO USE API CALLS
+    $.ajax({
+      url:url,
+      // This is how the proxy requests the data be passed to this API
+      data:"path="+
+      
+      // A more of the description of the URL....
+      encodeURIComponent("AreaCalculator/Rectangle/?width=5&length=4"),
+      accepts:{ // for the response
+        json: "application/json"
+      },
+      dataType: "json", // for the response
+      // ContentType: "json", // for the request
+      success: function(data){
+        console.log(data);
+        document.write("area: "+data.Area)
+      }
+    });
+  </script>
+</body>
+</html>

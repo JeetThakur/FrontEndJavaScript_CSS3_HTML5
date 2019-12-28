@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            /* 
+                Class Constructor
+            */
+        
+
+            class Fruit{
+                constructor( options={ } ) {
+                    this.type = options.type;
+                    this.color = options.color || "Green";
+
+                }
+                describe(){
+                    return `type:${this.type}, color:${this.color}`;
+                }
+            }
+            const apple1 = new Fruit({
+                type:"apple",
+                color:"Red"
+            });
+            const pear1 = new Fruit({});
+            console.log("apple1: ", apple1.describe(), "\t\t\t\t", apple1);
+            console.log("pear1: ", pear1.describe(), "\t\t\t\t", pear1);
+
+            /************************/
+            
+            /*
+                Object Literal ( Factory Functions -- a pre built object created when new called but no constructor present )
+            */
+           
+            function getFruit(options={}){
+                const hidden = "private var";
+                
+                // spread operator in ES6 
+                    // arr = [...array1Name, ...array2Name]
+                    // Concats the two arrays together
+                    
+                // spread operator; only include property if options.type has a value != undefined/null
+                return{
+                    ...options.type && {type:options.type}, // && works as if this first condition is true then use the next condition
+                                                            // if anyone of the prevailing conditions are falsy we return undefined and 
+                                                            // save ourself from the unreferenced error of an undefined value.
+                                                            
+                    color: options.color || "green", // || is for default value
+                    describe(){ return `type:${this.type}, color:${this.color}`;}
+                };
+            }
+
+            const apple2 = getFruit({
+                type:"apple",
+                color:"Red"
+            });
+            const pear2 = getFruit({});
+            console.log("apple2: ", apple2.describe(), "\t\t\t\t", apple2);
+            console.log("pear2: ", pear2.describe(), "\t\t\t\t", pear2);
+
+
+        /*
+        Destructuring with the parameters
+        */
+        function getFruit2({type,color} = { color:"green" }){
+                const hidden = "private var";
+            return {
+                type,
+                color,
+                describe(){ return `type:${this.type}, color:${this.color}`;}
+            }
+
+        }
+
+        const apple3 = getFruit2({
+                type:"apple",
+                color:"Red"
+            });
+        const pear3 = getFruit2({});
+            console.log("apple3: ", apple3.describe(), "\t\t\t\t", apple3);
+            console.log("pear3: ", pear3.describe(), "\t\t\t\t", pear3);
+
+
+        /*
+        Object.create() method 
+        */
+       const fruit = {
+           type:undefined,
+           color:"green",
+           describe(){ return `type:${this.type}, color:${this.color}`;}
+       };
+    // No prototype here just objects, more code here so more scope of error --
+       const getApple = function(){
+            const hidden = "private";
+
+            return Object.assign(Object.create(fruit), {
+                type:"apple",
+                color:"red"
+            });
+       };
+       const apple4 = getApple();
+       console.log("apple4: ", apple4.describe(), "\t\t\t\t", apple4);
+        </script>
+    </head>
+</html>

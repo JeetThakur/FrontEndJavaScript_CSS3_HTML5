@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>Prototype</title>
+	<!--
+	  images from:
+	  https://encylia.com/wp-content/uploads/2015/01/ghost-156656_640.png
+	  http://images.clipartpanda.com/happy-jack-o-lantern-clipart-bcyE6LAzi.jpeg
+	-->
+	<script>
+// init stuff
+// Global Constants
+const KEY_LEFT  = 74,   // j
+  KEY_UP    = 73,   // i
+  KEY_RIGHT = 76,   // l
+  KEY_DOWN  = 75,   // k
+  KEY_A     = 65,   // a
+// Globals
+  
+  HOWMANY   = 12,
+  pumpkins = [],
+  arr       = [];   //Will be used to hold all of the instances we make
+let fighter,
+lastKey   = 0,
+  win_width;
+
+
+// This is where we actually create the objects, start our frame rate, and assign the key events
+function init(){
+  dimensions();
+
+	// create pumpkins
+	for (let i=0;i<HOWMANY;i++){
+		pumpkins[i] = new Sprite( i, "pumpkin.png", 40,42,0,42*i, (i+1)%20+1 );
+
+		pumpkins[i].create();
+	}
+	fighter = new Fighter("ghost", "ghost.png")
+	fighter.create();
+	// watch keys
+	document.onkeypress = keyDownEventHandler;
+	
+	// start clock
+	startTicker();
+}
+
+// Get dimensions of the window (for bounce)
+function dimensions() {
+  win_width = window.innerWidth - 50;
+}
+  
+     
+////////////////////////////////////////////////////////////////////////////
+// important stuff!
+// Build a Sprite (OK - pretty simple object that we'll use to show how it works
+// and how to do inheritance, etc)
+
+function Sprite(sn,imgsrc,width,height,left,top,dx){
+	// instance variable - unique to each pumpkin
+	this.sn = sn;
+	this.src = imgsrc;
+	this.width = width;
+	this.height = height;
+	this.left = left;
+	this.top = top;
+	this.dx = dx;
+
+	console.log(this.top);
+}
+// Prototypal inheritance || oloo means the same ......
+
+// This will make the pumpking move and bounce ...
+Sprite.prototype.move = function(){
+	// which one am i on the page ?? ( DOM )
+	let domEle = document.getElementById("sprite_"+this.sn);
+
+	// which way I am moving
+
+	// going on the right till we touch the window width or check if left is going beyond the left limit 
+	if ( (this.dx > 0 && (this.left+this.width) < win_width) || 
+		(this.dx < 0 && (this.left > 0)) )  {
+			this.left += this.dx;
+
+			// in the DOM
+			domEle.style.left = this.left+"px";
+		}
+	else{
+		// change direction
+		this.dx*=-1;
+	}
+
+};
+
+if (this.left > Fighter.left && this.left + this.width < fighter.left + fighter.width && this.top> fighter.top
+		&& this.top+this.height < fighter.top+fighter.height){
+			domEle.remove(); // remove DOM
+			pumpkins[this.sn] = null; // remove from memmory 
+		}
+
+
+
+// create img ele in memory
+Sprite.prototype.build = function(){
+	let imgEle = document.createElement("img");
+	imgEle.id = "sprite_"+this.sn;
+	imgEle.src = this.src;
+	imgEle.style.position = "absolute";
+	imgEle.width= this.width;
+	imgEle.height=this.height;
+	imgEle.style.left = this.left + "px";
+	imgEle.style.top = this.top + "px";
+
+	return imgEle;
+}
+
+// Adding images to the DOM
+Sprite.prototype.create = function(){
+	// build() returns an image element and we use that to append that to the DOM
+	document.body.appendChild(this.build());
+}
+
+//////////////////////////////////////////////////////////////////////
+//Let's build another object and inherit from the Sprite object!
+
+
+// create a ghost inherting from the Sprite Function
+function Fighter (sn , src){
+	this.sn = sn
+	this.src = src
+}
+
+Fighter.prototype = new Sprite("Na", this.src,150,137,300,300,4)
+Fighter.prototype.moveTo = function (left,top){
+	let domEle = document.getElementById("sprite_"+this.sn);
+
+	// move in mem
+	this.left=left;
+	this.top=top;
+
+	domEle.style.left=this.left+"px"
+	domEle.style.top=this.top+"px"
+}
+
+Fighter.prototype.moveRight = function(){
+	this.moveTo( this.left + this.dx, this.top);
+}
+
+Fighter.prototype.moveLeft = function(){
+	this.moveTo( this.left - this.dx, this.top);
+}
+Fighter.prototype.moveUp = function(){
+	this.moveTo( this.left, this.top - this.dx);
+}
+Fighter.prototype.moveDown = function(){
+	this.moveTo( this.left , this.top + this.dx);
+}
+
+
+//////////////////////////////////////////////////////////////////////
+//Build a frame-rate timeline... (almost complete)
+//ticker function
+let ticker_handle;
+
+//start it...
+function startTicker(){
+	ticker_handle = setTimeout( ticker, 20 );
+}
+
+//stop it...
+function stopTicker() {
+    clearTimeout( ticker_handle );
+}
+
+//This is my frame-rate
+function ticker(){
+	processKey();
+	//also need to move each instance (will complete later)
+	for ( var i=0; i<HOWMANY; i++ ) {
+		if ( pumpkins[i]!=null ) {
+			pumpkins[i].move();
+		}
+	}
+
+  setTimeout( ticker, 20 );
+}
+///////////////////////////////////////////////////////////////////////
+//Keyboard stuff - completed
+//
+//
+// NAME: keyDownEventHandler
+// DESCRIPTION: Handles keyboard events
+//
+function keyDownEventHandler( e ) {
+  let key = 0;
+  // subtract 32 for onkeypress instead of onkeyup
+	key = parseInt( e.keyCode ) - 32;
+	lastKey = key;
+}
+
+//
+// NAME: processKey
+// DESCRIPTION: Processes the key that was pressed
+//  			Called at the framerate
+//
+function processKey() {
+	switch ( lastKey ) {
+		case KEY_LEFT:
+			fighter.moveLeft();
+			break;
+		case KEY_RIGHT:
+			fighter.moveRight();
+			break;
+		case KEY_UP:
+			fighter.moveUp();
+			break;
+		case KEY_DOWN:
+			fighter.moveDown();
+			break;
+    }
+}
+	//-->
+	</script>
+	
+</head>
+<body onload="init();" onresize="dimensions()">
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>No Prototype</title>
+	
+	<script>
+	
+	let win_width,    // Distance to move
+	  dxArr = [];     // Direction for each item
+	
+  //Get dimensions of the window
+  function dimensions() {
+    win_width = window.innerWidth - 50;
+  }
+	// create objects start our frame rate
+	function init(){
+	  dimensions();
+	  
+		// create pumpkins
+		for ( i = 1; i <= 10; i++ ) {
+			let img = document.createElement('img');
+			img.src = "pumpkin.png";
+			img.id  = "move"+i;
+			img.style.fontSize = "14px";
+			img.style.position = "absolute";
+			img.style.left     = 0;
+			img.style.top      = i * 42 - 42 + "px";
+			document.body.appendChild( img );
+			
+			moveIt( "move" + i, i );
+			
+			dxArr[i] = i + 1;
+		}
+	}
+
+  function moveIt( whichOne, id ){ 
+    let pos = parseInt( document.getElementById( whichOne ).style.left );
+      
+    if ( ( pos < win_width && dxArr[id] > 0 ) || ( pos > 0 && dxArr[id] < 0 ) ) {
+      let dx = ( dxArr[id] + 1 ) % 20 + 1 || -1;
+      document.getElementById( whichOne ).style.left = pos + dx + "px";
+    } 
+    else {
+      dxArr[id] = dxArr[id] * -1;
+    }
+    
+    setTimeout( function() {
+      moveIt( whichOne, id );
+    }, 20 );
+  }
+	 
+	 
+	  
+
+	</script>
+	
+</head>
+<body onload="init();" onresize="dimensions();">
+
+</body>
+</html>

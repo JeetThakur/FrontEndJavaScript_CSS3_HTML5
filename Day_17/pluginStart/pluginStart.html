@@ -1,0 +1,44 @@
+﻿<!-- NOT WORKING AWAITING FOR RESPONSE -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+<script src="myPlugin.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+	
+	$(document).ready(function(){
+
+		//make some bs li's with some numbers for our plugin....
+		var len=16;
+		for(i=0;i<len;i++){
+			$('#contents').append('<li>'+Math.floor(Math.random()*100)+'</li>');
+		}
+		// here just calling the element tag sends all the data of each of the respective field into the plugin as the
+		// array of elements 
+		$("#array-sum").html( $.sumContents($('li') ) );
+		//use shortcut
+
+		$("#test").click(function(){
+			$('#array-sum').slideFadeOut(1000).css("background-color","orange")
+			.show(2500);
+		});
+	});
+
+	$("p").reverseText().css("background-color","green");
+
+//]]>
+</script>
+    <title>jQuery plugins</title>
+</head>
+<body>
+<h2>using our sum method</h2>
+<ul id="contents"></ul>
+<p>Sum</p>
+<div id="array-sum"></div>
+<button id="test">click me to test</button>
+<p>more in a p</p>
+</body>
+</html>

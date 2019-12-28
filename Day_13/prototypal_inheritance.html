@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prototypal Inheritance</title>
+  <script>
+    
+    /*
+     * Traditional Prototypal Inheritance
+     */
+    const prototypalInheritance = (function() {
+      
+      /*
+        Google about the spread operator in JavaScript
+      */
+
+      /*
+       * Hero
+       */
+      
+      function Hero( options = {} ) {
+        this.name = options.name || "Hero";
+        this.fightsEvil = true;
+          
+        if ( options.universe ) {
+          this.universe = options.universe;
+        }
+      }
+      
+      Hero.prototype.describe = function() {
+        return "I'm " + this.name + ( this.fightsEvil ? " and I fight evil" : "" ) + "!";
+      };
+      
+      const spiderMan = new Hero( { name: "Spider Man", universe: "DC Comics" } );
+      console.log( "traditional prototypal inheritance\n\t", spiderMan, "\n\t", spiderMan.describe(), "\n\tinstance of Hero: ", spiderMan instanceof Hero );
+      
+      
+      /*
+       * Flyer
+       */
+      function Flyer( options = {} ) {
+        // constructor call using the call method
+        // this is just another way than using new keyword
+
+        Hero.call( this, options );
+      }
+
+      
+      Flyer.prototype = new Hero();
+      
+      Flyer.prototype.fly = function() {
+        return "Watch me soar!"; 
+      };
+      
+      const stratos = new Flyer( { name: "Stratos", universe: "Masters of the Universe" } );
+      console.log( "traditional prototypal inheritance\n\t", stratos, "\n\t", stratos.describe(), "\t", stratos.fly(), "\n\tinstance of Hero: ", stratos instanceof Hero );
+      
+      
+      /*
+       * StrongMan
+       */
+      function StrongMan( options = {} ) {
+        Hero.call( this, options );
+      }
+      
+      StrongMan.prototype = new Hero();
+      
+      StrongMan.prototype.lift = function() {
+        return "I can lift anything!";
+      };
+      
+      const heMan = new StrongMan( { name: "He-Man", universe: "Masters of the Universe" } );
+      console.log( "traditional prototypal inheritance\n\t", heMan, "\n\t", heMan.describe(), "\t", heMan.lift(), "\n\tinstance of Hero: ", heMan instanceof Hero );
+      
+      
+      /*
+       * Superman
+       */
+      // ?
+      
+      
+      console.log( "\n" );
+    })();
+    
+    
+    /*********************************************************************************************************************/
+    
+    
+    
+    /*
+     * Class Constructor
+     */
+    const classConstructor = (function() {
+      
+      /*
+       * Hero
+       */
+      class Hero {
+        constructor( options = {} ) {
+          this.name = options.name || "Hero";
+          this.fightsEvil = true;
+          
+          if ( options.universe ) {
+            this.universe = options.universe;
+          }
+        }
+        
+        describe() {
+          return "I'm " + this.name + ( this.fightsEvil ? " and I fight evil" : "" ) + "!";
+        }
+      }
+      
+      const spiderMan = new Hero( { name: "Spider Man", universe: "DC Comics" } );
+      console.log( "class constructor\n\t", spiderMan, "\n\t", spiderMan.describe(), "\n\tinstance of Hero: ", spiderMan instanceof Hero );
+      
+      
+      /*
+       * Flyer
+       */
+      class Flyer extends Hero {
+        constructor( options = {} ) {
+          super( options );
+        }
+        
+        fly() {
+          return "Watch me soar!"; 
+        }
+      }
+      
+      const stratos = new Flyer( { name: "Stratos", universe: "Masters of the Universe" } );
+      console.log( "class constructor\n\t", stratos, "\n\t", stratos.describe(), "\t", stratos.fly(), "\n\tinstance of Hero: ", stratos instanceof Hero );
+      
+      
+      /*
+       * StrongMan
+       */
+      class StrongMan extends Hero {
+        constructor( options = {} ) {
+          super( options );
+        }
+        
+        lift() {
+          return "I can lift anything!"; 
+        }
+      }
+      
+      const heMan = new StrongMan( { name: "He-Man", universe: "Masters of the Universe" } );
+      console.log( "class constructor\n\t", heMan, "\n\t", heMan.describe(), "\t", heMan.lift(), "\n\tinstance of Hero: ", heMan instanceof Hero );
+      
+      
+      /*
+       * Superman
+       */
+      // ?
+      
+      
+      console.log( "\n" );
+    })();
+    
+    
+    /*********************************************************************************************************************/
+    
+    
+    
+    /*
+     * Object Literal
+     */
+    const objectLiteral = (function() {
+            
+      /*
+       * Hero
+       */
+      // factory function - it just creates a new hero object whenever called
+      // benefit - private variables, not able to access hidden outside the function
+      // here this is kind of the important part to improve the functionality of the running enviornment
+      // first class function - passed around as objects
+      function makeHero( options = {} ) {
+        const hidden = "private var";
+        
+        // This method is non-reusable , this creates an object each time it is called
+        // This method is bad in this regard from the other two functions mentioned above
+        return {
+          name: options.name || "Hero",
+          ...options.universe && { universe: options.universe }, // spread operator -- chatayi khol , open the right if wrong open the left
+          fightsEvil: true,
+          instanceof: "hero",
+          describe() {
+            return "I'm " + this.name + ( this.fightsEvil ? " and I fight evil" : "" ) + "!";
+          }
+        };
+      }
+    
+      const spiderMan = makeHero( { name: "Spider Man", universe: "DC Comics" } );
+      console.log( "object literal\n\t", spiderMan, "\n\t", spiderMan.describe(), "\n\tinstance of hero: ", spiderMan.instanceof === "hero" );
+      
+      
+      /*
+       * Flyer
+       */
+      function makeFlyer( options = {} ) {
+        return {
+          ...makeHero( options ),
+          instanceof: "flyer",
+          fly() {
+            return "Watch me soar!"; 
+          }
+        };
+      }
+    
+      const stratos = makeFlyer( { name: "Stratos", universe: "Masters of the Universe" } );
+      console.log( "object literal\n\t", stratos, "\n\t", stratos.describe(), "\t", stratos.fly(), "\n\tinstance of:", stratos.instanceof );
+      
+      
+      /*
+       * StrongMan
+       */
+      function makeStrongMan( options = {} ) {
+        return {
+          ...makeHero( options ),
+          instanceof: "strongMan",
+          lift() {
+            return "I can lift anything!"; 
+          }
+        };
+      }
+    
+      const heMan = makeStrongMan( { name: "He-Man", universe: "Masters of the Universe" } );
+      console.log( "object literal\n\t", heMan, "\n\t", heMan.describe(), "\t", heMan.lift(), "\n\tinstance of:", heMan.instanceof  );
+      
+      
+      /*
+       * Superman
+       */
+      function makeSuperMan( options = {} ) {
+        return {
+          // OBJECT COMPOSTITION
+          // CAN USE FLY()
+          ...makeFlyer( options ),
+          // CAN USE LIFT()
+          ...makeStrongMan( options ),
+          instanceof: "superMan"
+        };
+      }
+    
+      const superman = makeSuperMan( { name: "Superman", universe: "DC Comics" } );
+      console.log( "object literal\n\t", superman, "\n\t", superman.describe(), "\t", superman.fly(), "\t", superman.lift(), "\n\tinstance of:", superman.instanceof );
+      
+      
+      
+      console.log( "\n" );
+    })();
+    
+    
+    /*********************************************************************************************************************/
+    
+    
+    
+    /*
+     * Object Literal with Destructuring
+     */
+    const objectLiteralWithDestructuring = (function() {
+      function makeHero( { name, universe } = { name: "Hero" } ) {
+        const hidden = "private var";
+        
+        return {
+          name,
+          universe,
+          fightsEvil: true,
+          describe() {
+            return "I'm " + this.name + ( this.fightsEvil ? " and I fight evil" : "" ) + "!";
+          }
+        };
+      }
+      
+      const spiderMan = makeHero( { name: "Spider Man", universe: "DC Comics" } );
+      console.log( "object literal with destructuring\n\t", spiderMan, "\n\t", spiderMan.describe() );
+      
+      console.log( "\n" );
+    })();
+    
+    
+    /*********************************************************************************************************************/
+    
+    
+    
+    /*
+     * Object.create()
+     */
+    const objectCreate = (function () {  
+      
+      /*
+       * Hero
+       */
+      const hero = {
+        name: "Hero",
+        universe: undefined,
+        fightsEvil: true,
+        instanceof: "hero",
+        describe() {
+          return "I'm " + this.name + ( this.fightsEvil ? " and I fight evil" : "" ) + "!";
+        }
+      };
+      
+      function makeHero( options ) {
+        const hidden = "private var";
+        
+        return Object.assign( Object.create( hero ), {
+          name: options.name || "Hero",
+          ...options.universe && { universe: options.universe }
+        });
+      }
+      
+      const spiderMan = makeHero( { name: "Spider Man", universe: "DC Comics" } );
+      console.log( "Object.create()\n\t", spiderMan, "\n\t", spiderMan.describe(), "\n\tinstance of Hero: ", spiderMan.instanceof === "hero" );
+      
+      
+      /*
+       * Flyer
+       */
+      const flyer = {
+        instanceof: "flyer",
+        fly() {
+          return "Watch me soar!"; 
+        }
+      };
+      
+      function makeFlyer( options ) {
+        return Object.assign( Object.create( { ...hero, ...flyer } ), options );
+      }
+    
+      const stratos = makeFlyer( { name: "Stratos", universe: "Masters of the Universe" } );
+      console.log( "Object.create()\n\t", stratos, "\n\t", stratos.describe(), "\t", stratos.fly(), "\n\tinstance of:", stratos.instanceof );
+      
+      
+      /*
+       * StrongMan
+       */
+      const strongMan = {
+        instanceof: "strongMan",
+        lift() {
+          return "I can lift anything!"; 
+        }
+      };
+      
+      function makeStrongMan( options ) {
+        return Object.assign( Object.create( { ...hero, ...strongMan } ), options );
+      }
+    
+      const heMan = makeStrongMan( { name: "He-Man", universe: "Masters of the Universe" } );
+      console.log( "Object.create()\n\t", heMan, "\n\t", heMan.describe(), "\t", heMan.lift(), "\n\tinstance of:", heMan.instanceof );
+      
+      
+      /*
+       * Superman
+       */
+      function makeSuperMan( options ) {
+        return Object.assign( Object.create( { ...hero, ...flyer, ...strongMan } ), { ...options, instanceof: "superMan" } );
+      }
+    
+      const superman = makeSuperMan( { name: "Superman", universe: "DC Comics" } );
+      console.log( "Object.create()\n\t", superman, "\n\t", superman.describe(), "\t", superman.fly(), "\t", superman.lift(), "\n\tinstance of:", superman.instanceof );
+      
+      console.log( "\n" );
+    })();
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

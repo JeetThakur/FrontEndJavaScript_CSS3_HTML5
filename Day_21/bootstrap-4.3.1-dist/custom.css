@@ -1,0 +1,9 @@
+.bg-dark, .footer{
+    background-color: darkslateblue !important ;
+}
+body{
+    background-color: snow;
+}
+.navbar-dark .navbar-nav .nav-link.disabled {
+    color:red;
+}
